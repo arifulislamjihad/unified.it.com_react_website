@@ -1,70 +1,76 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/hero-image.png"; // তোমার hero image
+import heroImage from "../assets/hero-image.png"; // তোমার নিজের hero image
 
 export default function HeroSection() {
   return (
-    <section className="relative flex flex-col md:flex-row justify-between items-center px-10 md:px-20 pt-28 md:pt-32 pb-16 bg-gradient-to-tr from-orange-100 via-pink-100 to-purple-200 overflow-hidden">
-      
-      {/* Animated gradient glow background */}
+    <section
+      id="home"
+      className="relative flex flex-col md:flex-row justify-between items-center px-8 md:px-20 pt-28 md:pt-32 pb-20 bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-200 overflow-hidden"
+    >
+      {/* 🌈 Background subtle animation blob */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-tr from-purple-200/30 via-blue-200/20 to-pink-200/20 blur-3xl"
-        animate={{
-          opacity: [0.5, 0.8, 0.5],
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: "mirror",
-        }}
+        className="absolute top-0 -left-40 w-[600px] h-[600px] bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-20 blur-3xl"
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-10 blur-3xl"
+        animate={{ y: [0, 20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Text section */}
+      {/* 🌟 Left Content */}
       <motion.div
-        className="max-w-lg space-y-6 relative z-10"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="z-10 max-w-lg space-y-6"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
       >
-        <p className="uppercase text-sm text-gray-600 tracking-wider">
-          UITL. LIMITLESS INNOVATION.
+        <p className="uppercase text-sm text-blue-600 tracking-wider">
+          Unified IT — Limitless Innovation
         </p>
-        <h1 className="text-5xl font-bold text-gray-900 leading-tight">
-          Trust your tools.<br />
-          Transform your future.
+        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          Empower Your <span className="text-blue-600">Cloud</span> Journey
+          <br /> with AI Intelligence
         </h1>
-        <p className="text-gray-700">
-          With built-in security and governance, UITL helps you build AI-powered
-          solutions that scale and inspire. Pay as you go or try UITL free for up to 30 days.
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Build, scale, and innovate with Unified IT’s secure, AI-driven cloud
+          infrastructure. Experience seamless integration and unmatched
+          performance across your enterprise.
         </p>
 
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-wrap gap-4 mt-8">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 text-white px-5 py-2 rounded-md shadow-lg hover:bg-blue-700"
+            className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-blue-700 transition"
           >
-            Get started with UITL
+            Get Started
           </motion.button>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border border-gray-400 px-5 py-2 rounded-md hover:bg-gray-100"
+            className="border border-gray-400 text-gray-800 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition"
           >
-            Explore UITL AI Foundry
+            Explore AI Cloud
           </motion.button>
         </div>
       </motion.div>
 
-      {/* Floating image */}
+      {/* 🖼️ Right Hero Image */}
       <motion.img
         src={heroImage}
-        alt="Developer working"
-        className="max-w-md rounded-2xl shadow-xl mt-10 md:mt-0 relative z-10"
+        alt="Developer working on AI Cloud"
+        className="max-w-md md:max-w-lg mt-12 md:mt-0 drop-shadow-2xl rounded-2xl z-10"
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        whileHover={{ scale: 1.03 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        animate={{
+          y: [0, -10, 0],
+          transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+        }}
       />
     </section>
   );
